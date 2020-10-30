@@ -63,6 +63,9 @@ namespace FeedSample
             //});
 
             services.AddFeedClient<BudgetEvent, FeedOptions>();
+            services.AddFeedClient<QuestEvent, FeedOptions>();
+            services.AddFeedClient<Licence, FeedOptions>();
+            services.AddFeedClient<Employee, FeedOptions>();
             services.AddTransient(typeof(Synchronizer<>));
             return services;
         }
@@ -70,7 +73,7 @@ namespace FeedSample
 
         static async Task Main(string[] args)
         {
-            var synchronizer = ServiceProvider.GetService<Synchronizer<BudgetEvent>>();
+            var synchronizer = ServiceProvider.GetService<Synchronizer<QuestEvent>>();
             await synchronizer.RunAsync();
         }
     }

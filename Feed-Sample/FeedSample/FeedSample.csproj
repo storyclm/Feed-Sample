@@ -19,7 +19,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0-rc.2.20475.5" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0-rc.2.20475.5" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0-rc.2.20475.5" />
-    <PackageReference Include="RightPerception.Story.SDK.Feed" Version="0.1.0" />
+    <PackageReference Include="RightPerception.Story.SDK.Feed" Version="0.1.1" />
   </ItemGroup>
 
   <ItemGroup>

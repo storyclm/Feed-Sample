@@ -1,6 +1,5 @@
 ﻿using Breffi.Story;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using RightPerception.Story.SDK.Feed;
 using System;
 using System.Threading.Tasks;
@@ -52,14 +51,11 @@ namespace FeedSample
                 if (state.Token.HasValue)
                     builder = builder.UseCursor(state.Token.Value);
 
-                var feed = builder.Build();
-
-                foreach (var page in feed)
+                foreach (var page in builder.Build())
                 {
-                    await page.Items.ThrottleAsync(async slide =>
+                    await page.Items.ThrottleAsync(async item =>
                     {
-                        await slide.Save();
-                        return Task.CompletedTask;
+                        await item.Save();
                     }, 10);
 
                     state.Token = page.Cursor;
